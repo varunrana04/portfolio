@@ -1811,6 +1811,12 @@ img {
 /* ===== ENHANCED MOBILE OPTIMIZATIONS ===== */
 @media (max-width: 768px) {
 
+  /* Single column projects on mobile */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   /* Touch-friendly targets */
   .btn,
   .project-link,

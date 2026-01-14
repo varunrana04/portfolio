@@ -1056,12 +1056,10 @@
                     </div>
                 </div>
 
-                <form class="contact-form" data-animate="fade-left" action="https://api.web3forms.com/submit"
-                    method="POST">
+                <form class="contact-form" id="contactForm" data-animate="fade-left">
                     <input type="hidden" name="access_key" value="0363ceb0-50af-4aed-91a7-e10a555ff3c4">
                     <input type="hidden" name="subject" value="New message from portfolio website">
                     <input type="hidden" name="from_name" value="Portfolio Contact Form">
-                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -1075,13 +1073,14 @@
                         <textarea id="message" name="message" placeholder="Tell me about your project..."
                             required></textarea>
                     </div>
+                    <div id="formNotification" class="form-notification"></div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <line x1="22" y1="2" x2="11" y2="13" />
                             <polygon points="22 2 15 22 11 13 2 9 22 2" />
                         </svg>
-                        Send Message
+                        <span id="submitText">Send Message</span>
                     </button>
                 </form>
             </div>

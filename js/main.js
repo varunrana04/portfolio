@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initSmoothScroll();
     initCounters();
+    initContactForm();
 });
 
 /* ===== PARTICLE BACKGROUND ===== */
@@ -347,3 +348,58 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+/* ===== CONTACT FORM AJAX SUBMISSION ===== */
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+
+    const notification = document.getElementById('formNotification');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitText = document.getElementById('submitText');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Show loading state
+        submitBtn.classList.add('loading');
+        submitText.textContent = 'Sending...';
+        notification.className = 'form-notification';
+        notification.textContent = '';
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Show success notification
+                notification.className = 'form-notification success';
+                notification.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+
+                // Reset form
+                form.reset();
+
+                // Hide notification after 5 seconds
+                setTimeout(() => {
+                    notification.className = 'form-notification';
+                }, 5000);
+            } else {
+                throw new Error(result.message || 'Form submission failed');
+            }
+        } catch (error) {
+            // Show error notification
+            notification.className = 'form-notification error';
+            notification.textContent = '✕ Oops! Something went wrong. Please try again.';
+            console.error('Form error:', error);
+        } finally {
+            // Reset button state
+            submitBtn.classList.remove('loading');
+            submitText.textContent = 'Send Message';
+        }
+    });
+}

@@ -1783,6 +1783,210 @@ img {
   }
 }
 
+/* ===== TABLET RESPONSIVE (1024px) ===== */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== ENHANCED MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+
+  /* Touch-friendly targets */
+  .btn,
+  .project-link,
+  .social-link,
+  .filter-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Expandable project cards mobile */
+  .project-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .project-stat {
+    padding: 8px;
+  }
+
+  .project-stat .value {
+    font-size: 1.25rem;
+  }
+
+  .project-expand-cta {
+    padding-top: 12px;
+  }
+
+  /* Experience card mobile */
+  .experience-card {
+    padding: 20px;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .experience-logo-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Timeline mobile */
+  .timeline-content {
+    padding-left: 20px;
+  }
+
+  /* Contact form mobile */
+  .contact-form {
+    padding: 24px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+    /* Prevents iOS zoom */
+  }
+
+  /* Hero roles mobile */
+  .hero-roles {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .role-tag {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  /* Filter buttons mobile scroll */
+  .filter-buttons {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+  }
+
+  /* Skills mobile */
+  .skill-card {
+    padding: 20px;
+  }
+
+  /* Section padding mobile */
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+}
+
+/* ===== SMALL MOBILE (480px) ===== */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 100px;
+    min-height: auto;
+    padding-bottom: 60px;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .project-card {
+    border-radius: 16px;
+  }
+
+  .project-content {
+    padding: 16px;
+  }
+
+  .project-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-content p {
+    font-size: 0.85rem;
+  }
+
+  .project-stats {
+    gap: 6px;
+  }
+
+  .project-stat .value {
+    font-size: 1rem;
+  }
+
+  .project-stat .stat-label {
+    font-size: 0.65rem;
+  }
+
+  /* Hide scroll indicator on very small screens */
+  .scroll-stat {
+    display: none;
+  }
+}
+
+/* ===== SMOOTH SCROLL & REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    min-height: -webkit-fill-available;
+  }
+}
+
 /* ===== EXPANDABLE PROJECT CARDS ===== */
 .project-card {
   cursor: pointer;

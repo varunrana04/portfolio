@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollAnimations();
     initProjectFilters();
+    initExpandableProjects();
     initSkillBars();
     initBackToTop();
     initSmoothScroll();
@@ -190,6 +191,28 @@ function initProjectFilters() {
                     card.classList.add('hidden');
                 }
             });
+        });
+    });
+}
+
+/* ===== EXPANDABLE PROJECT CARDS ===== */
+function initExpandableProjects() {
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Don't toggle if clicking on a link
+            if (e.target.closest('a')) return;
+
+            // Close other expanded cards
+            projectCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove('expanded');
+                }
+            });
+
+            // Toggle current card
+            card.classList.toggle('expanded');
         });
     });
 }

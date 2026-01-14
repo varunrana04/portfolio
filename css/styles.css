@@ -797,6 +797,15 @@ img {
   flex-shrink: 0;
 }
 
+.experience-logo-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
 .experience-meta h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1772,4 +1781,75 @@ img {
   .about-floating-card {
     display: none;
   }
+}
+
+/* ===== EXPANDABLE PROJECT CARDS ===== */
+.project-card {
+  cursor: pointer;
+}
+
+.project-expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  padding: 0 24px;
+  background: rgba(124, 58, 237, 0.05);
+  border-top: 1px solid rgba(124, 58, 237, 0);
+}
+
+.project-card.expanded .project-expand {
+  max-height: 300px;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.project-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.project-stat {
+  text-align: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.project-stat .value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.project-stat .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.project-expand-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--accent-secondary);
+  font-size: 0.875rem;
+  padding-top: 16px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover .project-expand-cta {
+  opacity: 1;
+}
+
+.expand-icon {
+  transition: transform 0.3s;
+}
+
+.project-card.expanded .expand-icon {
+  transform: rotate(180deg);
 }

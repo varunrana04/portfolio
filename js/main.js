@@ -65,7 +65,7 @@ function initParticles() {
 
     const init = () => {
         particles = [];
-        const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+        const particleCount = Math.min(40, Math.floor((canvas.width * canvas.height) / 25000));
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
@@ -78,10 +78,10 @@ function initParticles() {
                 const dy = particles[i].y - particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 150) {
+                if (distance < 120) {
                     ctx.beginPath();
                     ctx.strokeStyle = '#7c3aed';
-                    ctx.globalAlpha = 0.1 * (1 - distance / 150);
+                    ctx.globalAlpha = 0.08 * (1 - distance / 120);
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -92,6 +92,7 @@ function initParticles() {
         }
     };
 
+    let frameCount = 0;
     const animate = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -100,7 +101,11 @@ function initParticles() {
             particle.draw();
         });
 
-        connectParticles();
+        // Only connect particles every 3rd frame for performance
+        if (frameCount % 3 === 0) {
+            connectParticles();
+        }
+        frameCount++;
         animationId = requestAnimationFrame(animate);
     };
 

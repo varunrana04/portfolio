@@ -33,6 +33,7 @@
     
     <div class="action-buttons">
       <a href="#projects" class="btn btn-primary">[ view projects ]</a>
+      <a href="https://www.linkedin.com/in/varunrana04" target="_blank" class="btn btn-secondary" style="color: var(--amber); border-color: var(--amber);">[ HIRE ME!! ]</a>
       <a href="assets/VR_Resume.pdf" class="btn btn-secondary" download>[ download resume ]</a>
     </div>
   </div>
@@ -249,6 +250,22 @@
   
   btnTrain.addEventListener('click', () => {
     if (isTraining) return;
+
+    if (btnTrain.textContent === "[ Open LinkedIn ]") {
+       window.open("https://www.linkedin.com/in/varunrana04", "_blank");
+       btnTrain.textContent = "[ Start Training ]";
+       gameOutput.innerHTML = '> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.';
+       gameOutput.scrollTop = gameOutput.scrollHeight;
+       return;
+    }
+    
+    if (btnTrain.textContent === "[ Try Again & Remortgage House ]") {
+       btnTrain.textContent = "[ Start Training ]";
+       gameOutput.innerHTML = '> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.';
+       gameOutput.scrollTop = gameOutput.scrollHeight;
+       return;
+    }
+
     isTraining = true;
     btnTrain.style.display = 'none';
     
@@ -315,7 +332,7 @@
                       
                       setTimeout(() => {
                           gameOutput.innerHTML += `<br><span style='color: var(--red)'>Validation Accuracy: 12%.</span><br>`;
-                          gameOutput.innerHTML += `<span style='color: var(--amber)'>You memorized the training data and overfitted the entire model.<br>You are fired. Game Over.</span><br><br>`;
+                          gameOutput.innerHTML += `<span style='color: var(--amber)'>You memorized the training data and overfitted the entire model.<br>You are fired. (But seriously, HIRE ME!!) Game Over.</span><br><br>`;
                           gameOutput.scrollTop = gameOutput.scrollHeight;
                           
                           btnTrain.textContent = "[ Open LinkedIn ]";

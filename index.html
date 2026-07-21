@@ -117,8 +117,78 @@
     </div>
   </section>
 
+  <section id="the_whole_idea" style="margin-top: 6rem;">
+    <h2 class="humor-h2"><span class="grn">##</span> the_whole_idea</h2>
+    <div class="humor-title">
+      Your notebook reaches for 1,000 lines.<br>
+      The pipeline needs ten.
+    </div>
+    
+    <div class="diff-box">
+      <div class="diff-header">
+        <span>model_pipeline.py</span>
+        <span>-90 +2</span>
+      </div>
+      <div class="diff-line del"><span class="diff-num">1</span> <span>- class MassiveOverengineeredDataset(Dataset):</span></div>
+      <div class="diff-line del"><span class="diff-num">2</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, data_path, transform=None):</span></div>
+      <div class="diff-line del"><span class="diff-num">3</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.data = pd.read_csv(data_path)</span></div>
+      <div class="diff-line del"><span class="diff-num">4</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;# ...87 more lines you maintain forever</span></div>
+      <div class="diff-line add"><span class="diff-num">5</span> <span>+ from transformers import pipeline</span></div>
+      <div class="diff-line add"><span class="diff-num">6</span> <span>+ classifier = pipeline("text-classification")</span></div>
+    </div>
+    <p class="cmt" style="margin-bottom: 2rem;">// same behavior. 88 fewer lines. zero bugs in code that no longer exists.</p>
+  </section>
+
+  <section id="the_ladder" style="margin-top: 6rem;">
+    <h2 class="humor-h2"><span class="grn">##</span> the_ladder</h2>
+    <div class="humor-title">
+      Stop at the first model<br>
+      that holds.
+    </div>
+
+    <div class="ladder-item">
+      <div class="ladder-num">01</div>
+      <div><strong>Does this need AI?</strong> Simple math works = skip it.</div>
+    </div>
+    <div class="ladder-item">
+      <div class="ladder-num">02</div>
+      <div><strong>Does a regex solve it?</strong> Use regex.</div>
+    </div>
+    <div class="ladder-item">
+      <div class="ladder-num">03</div>
+      <div><strong>Does XGBoost solve it?</strong> Use XGBoost. Don't add a 70B parameter dependency.</div>
+    </div>
+    <div class="ladder-item">
+      <div class="ladder-num">04</div>
+      <div><strong>Only then:</strong> boot up the A100s and write the minimum code that works.</div>
+    </div>
+  </section>
+
   <footer>
-    <p class="cmt"># EOF</p>
+    <div class="footer-logo">
+      <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="var(--fg)" stroke-width="3">
+        <!-- Minimal ASCII face SVG -->
+        <circle cx="50" cy="50" r="40" />
+        <path d="M 35 45 Q 40 40 45 45" />
+        <path d="M 55 45 Q 60 40 65 45" />
+        <path d="M 40 65 L 60 65" />
+      </svg>
+    </div>
+    <p class="cmt" style="margin-bottom: 2rem;">// the best code is the code never written.</p>
+    
+    <p style="margin-bottom: 2rem; color: var(--grn);">~/portfolio ></p>
+    
+    <div style="display: flex; gap: 1rem; color: var(--dim);">
+      <span>MIT licensed</span>
+      <span>•</span>
+      <a href="https://github.com/varunrana04/portfolio">varunrana04/portfolio</a>
+    </div>
+    
+    <div class="footer-links">
+      <a href="#">Legal Notice</a>
+      <span>•</span>
+      <a href="#">Privacy</a>
+    </div>
   </footer>
 </div>
 

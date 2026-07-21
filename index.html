@@ -165,6 +165,24 @@
     </div>
   </section>
 
+  <section id="ai_simulator" style="margin-top: 6rem;">
+    <h2 class="humor-h2"><span class="grn">##</span> realistic_ai_simulator.exe</h2>
+    <div class="humor-title">
+      Experience the thrill of Machine Learning.
+    </div>
+    
+    <div class="terminal-game" id="game-container" style="background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; font-family: var(--mono); height: 300px; display: flex; flex-direction: column;">
+      <div id="game-output" style="color: var(--dim); margin-bottom: 1rem; flex-grow: 1; overflow-y: auto; line-height: 1.5;">
+        > Initialize A100 GPU cluster...<br>
+        > Loading 70B parameter model...<br>
+        > Ready to train.
+      </div>
+      <div>
+        <button id="btn-train" class="btn btn-primary" style="background: var(--grn); color: var(--bg); border: none; padding: 0.5rem 1rem; cursor: pointer; font-family: var(--mono); font-weight: bold; border-radius: 4px;">[ Start Training ]</button>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-logo">
       <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="var(--fg)" stroke-width="3">
@@ -195,6 +213,7 @@
 
 <div id="snark-box" style="display: none; position: fixed; top: 60px; right: 20px; background: var(--panel); border: 1px solid var(--red); color: var(--red); padding: 10px 15px; border-radius: 4px; font-family: var(--mono); z-index: 9999; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"></div>
 <script>
+  // Light Mode Snark
   const snarkyResponses = [
     "I'm sorry, as an AI language model, I cannot enable light mode.",
     "CUDA Out of Memory. Buy more GPUs to unlock light mode.",
@@ -220,6 +239,52 @@
     timeoutId = setTimeout(() => {
       snarkBox.style.display = 'none';
     }, 3000);
+  });
+
+  // Realistic AI Simulator Game
+  const btnTrain = document.getElementById('btn-train');
+  const gameOutput = document.getElementById('game-output');
+  
+  let isTraining = false;
+  
+  btnTrain.addEventListener('click', () => {
+    if (isTraining) return;
+    isTraining = true;
+    btnTrain.style.display = 'none';
+    
+    gameOutput.innerHTML += '<br><br>> Starting training loop...<br>';
+    gameOutput.scrollTop = gameOutput.scrollHeight;
+    
+    const epochs = [
+      { e: 1, loss: "2.413", msg: "" },
+      { e: 2, loss: "1.822", msg: "" },
+      { e: 3, loss: "1.105", msg: "" },
+      { e: 4, loss: "0.512", msg: " <span style='color: var(--grn)'>Looking good!</span>" },
+      { e: 5, loss: "0.104", msg: " <span style='color: var(--grn)'>We're gonna be rich!</span>" },
+      { e: 6, loss: "NaN", msg: " <span style='color: var(--red)'>Wait, what?</span>" },
+    ];
+    
+    let delay = 700;
+    
+    epochs.forEach((epoch, index) => {
+      setTimeout(() => {
+        gameOutput.innerHTML += `> Epoch ${epoch.e}/100 | Loss: ${epoch.loss}${epoch.msg}<br>`;
+        gameOutput.scrollTop = gameOutput.scrollHeight;
+        
+        if (index === epochs.length - 1) {
+          // Crash
+          setTimeout(() => {
+             gameOutput.innerHTML += `<br><span style='color: var(--red)'>FATAL ERROR: CUDA Out of Memory.</span><br>`;
+             gameOutput.innerHTML += `<span style='color: var(--amber)'>Your AWS bill is $14,250. Game Over.</span><br><br>`;
+             gameOutput.scrollTop = gameOutput.scrollHeight;
+             
+             btnTrain.textContent = "[ Try Again & Remortgage House ]";
+             btnTrain.style.display = 'inline-block';
+             isTraining = false;
+          }, 1200);
+        }
+      }, delay * (index + 1));
+    });
   });
 </script>
 </body>

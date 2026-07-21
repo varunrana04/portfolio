@@ -273,8 +273,8 @@
     gameOutput.innerHTML = '> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.<br><br>> Starting training loop...<br>';
     gameOutput.scrollTop = gameOutput.scrollHeight;
     
-    // 20% chance to actually reach 100 epochs
-    const isSuccess = Math.random() < 0.2;
+    // 50% chance to actually reach 100 epochs
+    const isSuccess = Math.random() < 0.5;
     
     if (!isSuccess) {
       // The classic failure

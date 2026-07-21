@@ -4,7 +4,7 @@
 
 ## 🎯 Live Demo
 
-[View Portfolio](https://portfolio-varunrana.vercel.app) *(After deployment)*
+[View Portfolio](https://varun-portfolio-eta.vercel.app) *(After deployment)*
 
 ## ✨ Features
 

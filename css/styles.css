@@ -1,4 +1,4 @@
-/* ponytail.dev Hacker Gruvbox Theme */
+/* ponytail.dev Hacker Gruvbox Theme - Perfected */
 :root{
   --bg:#0e0d0b; 
   --panel:#161410; 
@@ -6,7 +6,8 @@
   --dim:#8b8270; 
   --faint:#3a352b;
   --grn:#83c167; 
-  --red:#e0705f; 
+  --red:#e0705f;
+  --yellow:#d8a657;
   --amber:#d8a657; 
   --orange:#e08a4a; 
   --line:#211f19;
@@ -31,6 +32,7 @@ body {
   font-size: 15px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  padding-top: 60px; /* space for top bar */
 }
 
 ::selection {
@@ -38,10 +40,175 @@ body {
   color: var(--bg);
 }
 
+/* Top Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  font-size: 13px;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.red { background: var(--red); }
+.dot.yellow { background: var(--yellow); }
+.dot.green { background: var(--grn); }
+
+.file-path {
+  color: var(--dim);
+  margin-left: 12px;
+}
+
+.light-mode-btn {
+  color: var(--dim);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.light-mode-btn:hover {
+  color: var(--fg);
+}
+
 .wrap {
   max-width: 820px;
   margin: 0 auto;
   padding: 4rem 24px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 6rem;
+  margin-top: 2rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: -2px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 24px;
+  height: 48px;
+  background-color: var(--grn);
+  margin-left: 4px;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero .subtitle {
+  font-size: 1.5rem;
+  color: var(--fg);
+  margin-bottom: 2rem;
+}
+
+.hero .cmt {
+  font-size: 1rem;
+  color: var(--dim);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto 0.5rem auto;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--grn);
+  color: var(--bg);
+}
+.btn-primary:hover {
+  background: #96d17a; /* slightly lighter green */
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--grn);
+  border: 1px solid var(--faint);
+}
+.btn-secondary:hover {
+  border-color: var(--grn);
+}
+
+/* Sections */
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dotted var(--dim);
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.block {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
 }
 
 a {
@@ -60,54 +227,6 @@ a:hover {
 .grn { color: var(--grn); }
 .red { color: var(--red); }
 .amber { color: var(--amber); }
-
-h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--fg);
-  margin-bottom: 0.5rem;
-}
-
-h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--fg);
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px dotted var(--dim);
-  padding-bottom: 0.5rem;
-}
-
-h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 0.2rem;
-}
-
-nav {
-  margin-bottom: 3rem;
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.9rem;
-}
-
-.block {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  padding: 1.5rem;
-  border-radius: 4px;
-  margin-bottom: 1.5rem;
-}
-
-.block-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.8rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
 
 .tags {
   display: flex;

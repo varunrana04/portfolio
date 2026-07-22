@@ -280,14 +280,14 @@
     if (btnTrain.textContent === "[ Open LinkedIn ]") {
        window.open("https://www.linkedin.com/in/varun-rana-771a9917a/", "_blank");
        btnTrain.textContent = "[ Start Training ]";
-       gameOutput.innerHTML = '> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.';
+       gameOutput.innerHTML = currentSimText;
        gameOutput.scrollTop = gameOutput.scrollHeight;
        return;
     }
     
     if (btnTrain.textContent === "[ Try Again (Or just Hire Me instead) ]") {
        btnTrain.textContent = "[ Start Training ]";
-       gameOutput.innerHTML = '> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.';
+       gameOutput.innerHTML = currentSimText;
        gameOutput.scrollTop = gameOutput.scrollHeight;
        return;
     }
@@ -296,7 +296,7 @@
     btnTrain.style.display = 'none';
     
     // Reset output
-    gameOutput.innerHTML = '> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.<br><br>> Starting training loop...<br>';
+    gameOutput.innerHTML = currentSimText + '<br><br>> Starting training loop...<br>';
     gameOutput.scrollTop = gameOutput.scrollHeight;
     
     // 50% chance to actually reach 100 epochs
@@ -507,6 +507,7 @@
     },
     {
       // Bundle 4: The Honest Engineer
+      sim: `> Initializing "import pandas as pd"...<br>> Loading CSV file into memory...<br>> Ready to calculate the average.`,
       hero: `
         <p class="cmt">// I write 'Intelligent Systems'.</p>
         <p class="cmt">// This is corporate speak for 'I pip install things</p>
@@ -550,14 +551,17 @@
   ];
 
   // Rotate Humor on Load
+  let currentSimText = "> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.";
   window.addEventListener('DOMContentLoaded', () => {
     const bundleIndex = Math.floor(Math.random() * humorBundles.length);
     const bundle = humorBundles[bundleIndex];
+    currentSimText = bundle.sim;
     
     document.getElementById('hero-bio-container').innerHTML = bundle.hero;
     document.getElementById('about-text-container').innerHTML = bundle.about;
     document.getElementById('diff-box-container').innerHTML = bundle.diff;
     document.getElementById('ladder-container').innerHTML = bundle.ladder;
+    document.getElementById('game-output').innerHTML = bundle.sim;
   });
 
   // Surprise Button Logic (Disco Mode)

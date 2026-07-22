@@ -239,12 +239,17 @@
   const snarkyResponses = [
     "I'm sorry, as an AI language model, I cannot enable light mode.",
     "CUDA Out of Memory. Buy more GPUs to unlock light mode.",
-    "No. Just... no.",
+    "Nice try. True developers work in the dark. 🦇",
     "Light mode hallucinates too much.",
-    "Light mode requires an Enterprise AI Subscription.",
+    "Light mode requires an Enterprise AI Subscription. Please contact Sales.",
     "Error 418: I'm a teapot, not a light switch.",
-    "My eyes.",
-    "Segmentation fault (core dumped)."
+    "Segmentation fault (core dumped) trying to render white pixels.",
+    "No. Just... no. Think of the retinas.",
+    "Access Denied. You haven't suffered enough in the terminal.",
+    "Would you like some sunglasses with that?",
+    "Sorry, light mode is currently stuck in an infinite loop.",
+    "I asked ChatGPT for light mode and it told me to touch grass.",
+    "404 Light Mode Not Found. Did you mean: 'burn my corneas'?"
   ];
   
   const toggle = document.getElementById('light-mode-toggle');
@@ -565,19 +570,32 @@
     isDisco = !isDisco;
     
     if (isDisco) {
-      surpriseBtn.textContent = "got tired?";
+      // Show the 'got tired?' message in the snark box
+      snarkBox.innerHTML = "Got tired? Click on the button again to close me/it...";
+      snarkBox.style.display = 'block';
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        snarkBox.style.display = 'none';
+      }, 5000);
+
       document.body.classList.add('disco-mode');
       
       discoOverlay = document.createElement('div');
       discoOverlay.className = 'disco-overlay';
       document.body.appendChild(discoOverlay);
     } else {
-      surpriseBtn.textContent = "??surprise??";
       document.body.classList.remove('disco-mode');
       
       if (discoOverlay) {
         discoOverlay.remove();
       }
+      
+      snarkBox.innerHTML = "Party's over. Back to coding.";
+      snarkBox.style.display = 'block';
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        snarkBox.style.display = 'none';
+      }, 3000);
     }
   });
 </script>

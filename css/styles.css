@@ -82,11 +82,17 @@ body {
   color: var(--dim);
   text-decoration: none;
   cursor: pointer;
-  border: none;
   background: none;
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 13px;
+  transition: all 0.2s;
 }
 .light-mode-btn:hover {
   color: var(--fg);
+  border-color: var(--fg);
 }
 
 .wrap {
@@ -421,18 +427,6 @@ footer {
 }
 
 /* === DISCO MODE === */
-.disco-mode {
-  animation: discoBg 50ms infinite alternate;
-}
-
-@keyframes discoBg {
-  0% { background: #ff000033; }
-  25% { background: #00ff0033; }
-  50% { background: #0000ff33; }
-  75% { background: #ff00ff33; }
-  100% { background: #ffff0033; }
-}
-
 .disco-overlay {
   position: fixed;
   top: 0;
@@ -441,22 +435,37 @@ footer {
   height: 100vh;
   pointer-events: none;
   z-index: 9998;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255, 0, 0, 0.2),
-    rgba(255, 255, 0, 0.2) 10%,
-    rgba(0, 255, 0, 0.2) 20%,
-    rgba(0, 255, 255, 0.2) 30%,
-    rgba(0, 0, 255, 0.2) 40%,
-    rgba(255, 0, 255, 0.2) 50%,
-    rgba(255, 0, 0, 0.2) 60%
+  overflow: hidden;
+}
+
+.disco-overlay::before {
+  content: "";
+  position: absolute;
+  top: -100vh;
+  left: -100vw;
+  width: 300vw;
+  height: 300vh;
+  background: conic-gradient(
+    from 0deg at 50% 50%, 
+    rgba(255, 0, 0, 0) 0deg,
+    rgba(255, 0, 0, 0.4) 20deg,
+    rgba(255, 0, 0, 0) 40deg,
+    rgba(0, 255, 0, 0) 90deg,
+    rgba(0, 255, 0, 0.4) 110deg,
+    rgba(0, 255, 0, 0) 130deg,
+    rgba(0, 0, 255, 0) 180deg,
+    rgba(0, 0, 255, 0.4) 200deg,
+    rgba(0, 0, 255, 0) 220deg,
+    rgba(255, 255, 0, 0) 270deg,
+    rgba(255, 255, 0, 0.4) 290deg,
+    rgba(255, 255, 0, 0) 310deg
   );
-  background-size: 100% 200%;
-  animation: strobeDown 0.5s linear infinite;
+  transform-origin: 50% 50%;
+  animation: spinLights 3s linear infinite;
   mix-blend-mode: color-dodge;
 }
 
-@keyframes strobeDown {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 0% 100%; }
+@keyframes spinLights {
+  0% { transform: translateY(-30%) rotate(0deg); }
+  100% { transform: translateY(-30%) rotate(360deg); }
 }

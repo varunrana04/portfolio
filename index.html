@@ -194,7 +194,7 @@
     <h2 class="humor-h2"><span class="grn">##</span> realistic_ai_simulator.exe</h2>
     <div class="humor-title" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
       <div>Experience the thrill of Machine Learning.</div>
-      <img src="https://media.giphy.com/media/V4NSR1NG2p0KeTXHTs/giphy.gif" alt="Hacking" style="height: 40px; border-radius: 4px; border: 1px solid var(--line);" />
+      <img id="sim-gif" src="https://media.giphy.com/media/V4NSR1NG2p0KeTXHTs/giphy.gif" alt="Hacking" style="height: 40px; border-radius: 4px; border: 1px solid var(--line);" />
     </div>
     
     <div class="terminal-game" id="game-container" style="background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; font-family: var(--mono); height: 300px; display: flex; flex-direction: column;">
@@ -281,14 +281,14 @@
        window.open("https://www.linkedin.com/in/varun-rana-771a9917a/", "_blank");
        btnTrain.textContent = "[ Start Training ]";
        gameOutput.innerHTML = currentSimText;
-       gameOutput.scrollTop = gameOutput.scrollHeight;
+       scrollToBottom();
        return;
     }
     
     if (btnTrain.textContent === "[ Try Again (Or just Hire Me instead) ]") {
        btnTrain.textContent = "[ Start Training ]";
        gameOutput.innerHTML = currentSimText;
-       gameOutput.scrollTop = gameOutput.scrollHeight;
+       scrollToBottom();
        return;
     }
 
@@ -297,12 +297,19 @@
     
     // Reset output
     gameOutput.innerHTML = currentSimText + '<br><br>> Starting training loop...<br>';
-    gameOutput.scrollTop = gameOutput.scrollHeight;
+    scrollToBottom();
     
     // 50% chance to actually reach 100 epochs
-    const isSuccess = Math.random() < 0.5;
+    const scrollToBottom = () => {
+      setTimeout(() => {
+        gameOutput.scrollTop = gameOutput.scrollHeight + 100;
+      }, 50);
+    };
+
+    // 0: OOM, 1: 12% Accuracy Overfit, 2: 100% Accuracy Data Leakage
+    const simOutcome = Math.floor(Math.random() * 3);
     
-    if (!isSuccess) {
+    if (simOutcome === 0) {
       // The classic failure
       const epochs = [
         { e: 1, loss: "2.413", msg: "" },
@@ -318,13 +325,13 @@
       epochs.forEach((epoch, index) => {
         setTimeout(() => {
           gameOutput.innerHTML += `> Epoch ${epoch.e}/100 | Loss: ${epoch.loss}${epoch.msg}<br>`;
-          gameOutput.scrollTop = gameOutput.scrollHeight;
+          scrollToBottom();
           
           if (index === epochs.length - 1) {
             setTimeout(() => {
                gameOutput.innerHTML += `<br><span style='color: var(--red)'>FATAL ERROR: CUDA Out of Memory.</span><br>`;
                gameOutput.innerHTML += `<span style='color: var(--amber)'>Your AWS bill is $14,250. Game Over.</span><br><br>`;
-               gameOutput.scrollTop = gameOutput.scrollHeight;
+               scrollToBottom();
                
                btnTrain.textContent = "[ Try Again (Or just Hire Me instead) ]";
                btnTrain.style.display = 'inline-block';
@@ -349,17 +356,22 @@
               if (e === 100) msg = " <span style='color: var(--grn)'>100% Training Accuracy!</span>";
               
               gameOutput.innerHTML += `> Epoch ${e}/100 | Loss: ${loss.toFixed(4)}${msg}<br>`;
-              gameOutput.scrollTop = gameOutput.scrollHeight;
+              scrollToBottom();
               
               if (e === 100) {
                   setTimeout(() => {
                       gameOutput.innerHTML += `<br>> Running on unseen Validation Set...<br>`;
-                      gameOutput.scrollTop = gameOutput.scrollHeight;
+                      scrollToBottom();
                       
                       setTimeout(() => {
-                          gameOutput.innerHTML += `<br><span style='color: var(--red)'>Validation Accuracy: 12%.</span><br>`;
-                          gameOutput.innerHTML += `<span style='color: var(--amber)'>You memorized the training data and overfitted the entire model.<br>You are fired. (But seriously, HIRE ME!!) Game Over.</span><br><br>`;
-                          gameOutput.scrollTop = gameOutput.scrollHeight;
+                          if (simOutcome === 1) {
+                              gameOutput.innerHTML += `<br><span style='color: var(--red)'>Validation Accuracy: 12%.</span><br>`;
+                              gameOutput.innerHTML += `<span style='color: var(--amber)'>You memorized the training data and overfitted the entire model.<br>You are fired. (But seriously, HIRE ME!!) Game Over.</span><br><br>`;
+                          } else {
+                              gameOutput.innerHTML += `<br><span style='color: var(--grn)'>Validation Accuracy: 100%.</span><br>`;
+                              gameOutput.innerHTML += `<span style='color: var(--amber)'>Wait... you evaluated on the training set, didn't you?<br>Data Leakage detected. You are fired. (But seriously, HIRE ME!!) Game Over.</span><br><br>`;
+                          }
+                          scrollToBottom();
                           
                           btnTrain.textContent = "[ Open LinkedIn ]";
                           btnTrain.style.display = 'inline-block';
@@ -552,7 +564,18 @@
 
   // Rotate Humor on Load
   let currentSimText = "> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.";
+  const simGifs = [
+    "https://media.giphy.com/media/V4NSR1NG2p0KeTXHTs/giphy.gif",
+    "https://media.tenor.com/anVMFFvkDG0AAAAM/pepe-hacker.gif",
+    "https://media.giphy.com/media/YQitE4YNQNahy/giphy.gif",
+    "https://media.giphy.com/media/hrFm7F5wE4Nwc/giphy.gif"
+  ];
+  
   window.addEventListener('DOMContentLoaded', () => {
+    // Randomize GIF
+    const gifIndex = Math.floor(Math.random() * simGifs.length);
+    document.getElementById('sim-gif').src = simGifs[gifIndex];
+
     const bundleIndex = Math.floor(Math.random() * humorBundles.length);
     const bundle = humorBundles[bundleIndex];
     currentSimText = bundle.sim;

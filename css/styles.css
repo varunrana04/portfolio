@@ -438,6 +438,7 @@ footer {
   overflow: hidden;
 }
 
+/* Green beams */
 .disco-overlay::before {
   content: "";
   position: absolute;
@@ -446,26 +447,55 @@ footer {
   width: 300vw;
   height: 300vh;
   background: conic-gradient(
-    from 0deg at 50% 50%, 
-    rgba(255, 0, 0, 0) 0deg,
-    rgba(255, 0, 0, 0.4) 20deg,
-    rgba(255, 0, 0, 0) 40deg,
-    rgba(0, 255, 0, 0) 90deg,
-    rgba(0, 255, 0, 0.4) 110deg,
-    rgba(0, 255, 0, 0) 130deg,
-    rgba(0, 0, 255, 0) 180deg,
-    rgba(0, 0, 255, 0.4) 200deg,
-    rgba(0, 0, 255, 0) 220deg,
-    rgba(255, 255, 0, 0) 270deg,
-    rgba(255, 255, 0, 0.4) 290deg,
-    rgba(255, 255, 0, 0) 310deg
+    from 180deg at 50% 50%, 
+    rgba(131, 193, 103, 0) 0deg,
+    rgba(131, 193, 103, 0.4) 15deg,
+    rgba(131, 193, 103, 0) 30deg,
+    rgba(131, 193, 103, 0) 90deg,
+    rgba(131, 193, 103, 0.3) 105deg,
+    rgba(131, 193, 103, 0) 120deg,
+    rgba(131, 193, 103, 0) 240deg,
+    rgba(131, 193, 103, 0.4) 255deg,
+    rgba(131, 193, 103, 0) 270deg,
+    rgba(131, 193, 103, 0) 360deg
   );
   transform-origin: 50% 50%;
-  animation: spinLights 3s linear infinite;
-  mix-blend-mode: color-dodge;
+  animation: sweepLeft 4s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
 }
 
-@keyframes spinLights {
-  0% { transform: translateY(-30%) rotate(0deg); }
-  100% { transform: translateY(-30%) rotate(360deg); }
+/* Yellow beams */
+.disco-overlay::after {
+  content: "";
+  position: absolute;
+  top: -100vh;
+  left: -100vw;
+  width: 300vw;
+  height: 300vh;
+  background: conic-gradient(
+    from 0deg at 50% 50%, 
+    rgba(216, 166, 87, 0) 0deg,
+    rgba(216, 166, 87, 0.4) 20deg,
+    rgba(216, 166, 87, 0) 40deg,
+    rgba(216, 166, 87, 0) 120deg,
+    rgba(216, 166, 87, 0.3) 140deg,
+    rgba(216, 166, 87, 0) 160deg,
+    rgba(216, 166, 87, 0) 250deg,
+    rgba(216, 166, 87, 0.4) 270deg,
+    rgba(216, 166, 87, 0) 290deg,
+    rgba(216, 166, 87, 0) 360deg
+  );
+  transform-origin: 50% 50%;
+  animation: sweepRight 3.2s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+}
+
+@keyframes sweepLeft {
+  0% { transform: translateY(-30%) rotate(-60deg); }
+  100% { transform: translateY(-30%) rotate(40deg); }
+}
+
+@keyframes sweepRight {
+  0% { transform: translateY(-30%) rotate(50deg); }
+  100% { transform: translateY(-30%) rotate(-50deg); }
 }

@@ -300,11 +300,11 @@
     scrollToBottom();
     
     // 50% chance to actually reach 100 epochs
-    const scrollToBottom = () => {
+    function scrollToBottom() {
       setTimeout(() => {
         gameOutput.scrollTop = gameOutput.scrollHeight + 100;
       }, 50);
-    };
+    }
 
     // 0: OOM, 1: 12% Accuracy Overfit, 2: 100% Accuracy Data Leakage
     const simOutcome = Math.floor(Math.random() * 3);
@@ -567,10 +567,10 @@
   // Rotate Humor on Load
   let currentSimText = "> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.";
   const simGifs = [
-    "https://media.giphy.com/media/V4NSR1NG2p0KeTXHTs/giphy.gif",
-    "https://media.tenor.com/anVMFFvkDG0AAAAM/pepe-hacker.gif",
-    "https://media.giphy.com/media/YQitE4YNQNahy/giphy.gif",
-    "https://media.giphy.com/media/hrFm7F5wE4Nwc/giphy.gif"
+    "assets/pepe-hacker.gif",
+    "https://media1.tenor.com/m/8Y-aR2PZep8AAAAd/hack-hacker.gif",
+    "https://media1.tenor.com/m/n4vE0bCqWnMAAAAd/cat-typing.gif",
+    "https://media1.tenor.com/m/G8mXm6a9Y_8AAAAd/hackerman.gif"
   ];
   
   window.addEventListener('DOMContentLoaded', () => {

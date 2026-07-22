@@ -431,71 +431,62 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
   z-index: 9998;
-  overflow: hidden;
+  overflow: hidden; /* This prevents the large pseudo-elements from spilling over */
 }
 
-/* Green beams */
+.disco-overlay::before, .disco-overlay::after {
+  content: "";
+  position: absolute;
+  top: -10vh; /* slightly above viewport to hide the origin point */
+  left: -100vw;
+  width: 300vw; /* Massive width prevents the corners from ever showing when rotated */
+  height: 200vh;
+  transform-origin: 50% 0%; /* Origin is exactly at the top center of this box */
+  mix-blend-mode: screen;
+}
+
+/* Red and Blue beams */
 .disco-overlay::before {
-  content: "";
-  position: absolute;
-  top: -100vh;
-  left: -100vw;
-  width: 300vw;
-  height: 300vh;
   background: conic-gradient(
-    from 180deg at 50% 50%, 
-    rgba(131, 193, 103, 0) 0deg,
-    rgba(131, 193, 103, 0.4) 15deg,
-    rgba(131, 193, 103, 0) 30deg,
-    rgba(131, 193, 103, 0) 90deg,
-    rgba(131, 193, 103, 0.3) 105deg,
-    rgba(131, 193, 103, 0) 120deg,
-    rgba(131, 193, 103, 0) 240deg,
-    rgba(131, 193, 103, 0.4) 255deg,
-    rgba(131, 193, 103, 0) 270deg,
-    rgba(131, 193, 103, 0) 360deg
+    from 90deg at 50% 0%, 
+    transparent 0deg,
+    transparent 40deg,
+    rgba(255, 0, 0, 0.4) 60deg,
+    transparent 80deg,
+    transparent 100deg,
+    rgba(0, 0, 255, 0.4) 120deg,
+    transparent 140deg,
+    transparent 360deg
   );
-  transform-origin: 50% 50%;
-  animation: sweepLeft 4s ease-in-out infinite alternate;
-  mix-blend-mode: screen;
+  animation: sweep1 4.5s ease-in-out infinite alternate;
 }
 
-/* Yellow beams */
+/* Green and Yellow beams */
 .disco-overlay::after {
-  content: "";
-  position: absolute;
-  top: -100vh;
-  left: -100vw;
-  width: 300vw;
-  height: 300vh;
   background: conic-gradient(
-    from 0deg at 50% 50%, 
-    rgba(216, 166, 87, 0) 0deg,
-    rgba(216, 166, 87, 0.4) 20deg,
-    rgba(216, 166, 87, 0) 40deg,
-    rgba(216, 166, 87, 0) 120deg,
-    rgba(216, 166, 87, 0.3) 140deg,
-    rgba(216, 166, 87, 0) 160deg,
-    rgba(216, 166, 87, 0) 250deg,
-    rgba(216, 166, 87, 0.4) 270deg,
-    rgba(216, 166, 87, 0) 290deg,
-    rgba(216, 166, 87, 0) 360deg
+    from 90deg at 50% 0%, 
+    transparent 0deg,
+    transparent 30deg,
+    rgba(131, 193, 103, 0.4) 50deg,
+    transparent 70deg,
+    transparent 110deg,
+    rgba(216, 166, 87, 0.4) 130deg,
+    transparent 150deg,
+    transparent 360deg
   );
-  transform-origin: 50% 50%;
-  animation: sweepRight 3.2s ease-in-out infinite alternate;
-  mix-blend-mode: screen;
+  animation: sweep2 3.5s ease-in-out infinite alternate;
 }
 
-@keyframes sweepLeft {
-  0% { transform: translateY(-30%) rotate(-60deg); }
-  100% { transform: translateY(-30%) rotate(40deg); }
+@keyframes sweep1 {
+  0% { transform: rotate(-25deg); }
+  100% { transform: rotate(35deg); }
 }
 
-@keyframes sweepRight {
-  0% { transform: translateY(-30%) rotate(50deg); }
-  100% { transform: translateY(-30%) rotate(-50deg); }
+@keyframes sweep2 {
+  0% { transform: rotate(30deg); }
+  100% { transform: rotate(-20deg); }
 }

@@ -270,21 +270,21 @@ h3 {
 }
 
 a {
-  color: var(--amber);
+  color: var(--yellow);
   text-decoration: none;
   border-bottom: 1px solid var(--faint);
   transition: border-color 0.2s;
 }
 
 a:hover {
-  border-color: var(--amber);
+  border-color: var(--yellow);
 }
 
 .dim { color: var(--dim); }
 .cmt { color: var(--dim); font-style: italic; }
 .grn { color: var(--grn); }
 .red { color: var(--red); }
-.amber { color: var(--amber); }
+.amber { color: var(--yellow); }
 
 .tags {
   display: flex;
@@ -359,4 +359,104 @@ footer {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--fg);
+}
+
+/* === RESPONSIVENESS === */
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-pepe {
+    width: 350px;
+    margin: 2rem auto 0;
+  }
+  .hero-h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-h1 {
+    font-size: 2.5rem;
+  }
+  .humor-title {
+    font-size: 1.5rem;
+  }
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .action-buttons .btn {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .diff-box {
+    font-size: 0.8rem;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .hero-pepe {
+    width: 250px;
+  }
+  .hero-h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+}
+
+/* Firefox Scrollbar Styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--comment) var(--bg);
+}
+
+/* === DISCO MODE === */
+.disco-mode {
+  animation: discoBg 50ms infinite alternate;
+}
+
+@keyframes discoBg {
+  0% { background: #ff000033; }
+  25% { background: #00ff0033; }
+  50% { background: #0000ff33; }
+  75% { background: #ff00ff33; }
+  100% { background: #ffff0033; }
+}
+
+.disco-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 0.2),
+    rgba(255, 255, 0, 0.2) 10%,
+    rgba(0, 255, 0, 0.2) 20%,
+    rgba(0, 255, 255, 0.2) 30%,
+    rgba(0, 0, 255, 0.2) 40%,
+    rgba(255, 0, 255, 0.2) 50%,
+    rgba(255, 0, 0, 0.2) 60%
+  );
+  background-size: 100% 200%;
+  animation: strobeDown 0.5s linear infinite;
+  mix-blend-mode: color-dodge;
+}
+
+@keyframes strobeDown {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
 }

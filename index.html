@@ -3,8 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Varun Rana ~</title>
-<meta name="description" content="Data Scientist & AI/ML Engineer">
+<title>Varun Rana | Data Scientist & AI/ML Engineer</title>
+<meta name="description" content="Data Scientist & AI/ML Engineer. I build intelligent systems and babysit Python scripts while they download 40GB of pip dependencies.">
+<meta name="author" content="Varun Rana">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0e0d0b">
+<link rel="canonical" href="https://varun-portfolio-eta.vercel.app/">
+<meta property="og:title" content="Varun Rana | Data Scientist & AI/ML Engineer">
+<meta property="og:description" content="Data Scientist & AI/ML Engineer. I build intelligent systems and babysit Python scripts while they download 40GB of pip dependencies.">
+<meta property="og:url" content="https://varun-portfolio-eta.vercel.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,39 +23,44 @@
 <body>
 <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-image: url('assets/matrix_bg.gif'); background-size: cover; background-position: center; opacity: 0.05; z-index: -1; pointer-events: none;"></div>
 
-<div class="top-bar">
+<nav class="top-bar">
   <div class="window-controls">
-    <span class="dot red"></span>
-    <span class="dot yellow"></span>
-    <span class="dot green"></span>
+    <span class="dot red" aria-hidden="true"></span>
+    <span class="dot yellow" aria-hidden="true"></span>
+    <span class="dot green" aria-hidden="true"></span>
     <span class="file-path">~/portfolio - README.md</span>
   </div>
-  <button id="light-mode-toggle" class="light-mode-btn">☼ light mode</button>
-</div>
+  <button id="surprise-btn" class="light-mode-btn" style="margin-right: 15px;">??surprise??</button>
+  <button id="light-mode-toggle" class="light-mode-btn" aria-label="Toggle light mode">☼ light mode</button>
+</nav>
 
-<div class="wrap">
+<main class="wrap">
   <div class="hero" style="position: relative; z-index: 1;">
-    <img src="https://media.tenor.com/anVMFFvkDG0AAAAM/pepe-hacker.gif" alt="Pepe Hacker" style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 550px; max-width: 95vw; opacity: 0.12; z-index: -1; pointer-events: none;" />
+    <img src="assets/pepe-hacker.gif" alt="Pepe Hacker" style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 550px; max-width: 95vw; opacity: 0.12; z-index: -1; pointer-events: none;" />
     <h1>varun_rana<span class="cursor"></span></h1>
     <p class="subtitle">He trains the models. They occasionally don't hallucinate.</p>
     
+    <div id="hero-bio-container">
     <p class="cmt">// A data scientist who realizes 99% of "AI solutions"</p>
     <p class="cmt">// are just nested IF statements and a thin API wrapper</p>
     <p class="cmt">// around OpenAI. (Actively looking to be hired by a team</p>
     <p class="cmt">// that knows the difference).</p>
+    </div>
     
     <div class="action-buttons">
       <a href="#projects" class="btn btn-primary">[ view projects ]</a>
-      <a href="https://www.linkedin.com/in/varun-rana-771a9917a/" target="_blank" class="btn btn-secondary" style="color: var(--amber); border-color: var(--amber);">[ HIRE ME!! ]</a>
+      <a href="https://www.linkedin.com/in/varun-rana-771a9917a/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="color: var(--amber); border-color: var(--amber);">[ HIRE ME!! ]</a>
       <a href="assets/VR_Resume.pdf" class="btn btn-secondary" download>[ download resume ]</a>
     </div>
   </div>
 
   <section id="about">
     <h2><span class="dim">cat</span> about.txt</h2>
+    <div id="about-text-container">
     <p>I build "intelligent systems" (which is a fancy way of saying I babysit Python scripts while they download 40GB of pip dependencies).</p>
     <br>
     <p>I specialize in crafting production-ready AI solutions and convincing stakeholders that we don't need a 70B parameter foundational model to predict if it's going to rain.</p>
+    </div>
   </section>
   
   <section id="experience">
@@ -70,7 +85,7 @@
 
     <div class="block">
       <div class="block-header">
-        <h3><a href="https://github.com/varunrana04/X-Ray-Image-and-Report-Generation" target="_blank">Pneumonia_Detector</a></h3>
+        <h3><a href="https://github.com/varunrana04/X-Ray-Image-and-Report-Generation" target="_blank" rel="noopener noreferrer">Pneumonia_Detector</a></h3>
         <span class="cmt">Medical AI</span>
       </div>
       <p class="dim">Automated radiology diagnostic system. It actually works, unlike your cousin's crypto trading bot. Achieved 93% accuracy combining YOLOv8 and NLP.</p>
@@ -83,7 +98,7 @@
 
     <div class="block">
       <div class="block-header">
-        <h3><a href="https://github.com/varunrana04" target="_blank">QuantEdge_Trading</a></h3>
+        <h3><a href="https://github.com/varunrana04" target="_blank" rel="noopener noreferrer">QuantEdge_Trading</a></h3>
         <span class="cmt">Algorithmic Trading</span>
       </div>
       <p class="dim">Dual-market algorithmic trading engine. It hasn't made me a billionaire yet, but it hasn't bankrupted me either. I consider that an absolute win.</p>
@@ -96,7 +111,7 @@
 
     <div class="block">
       <div class="block-header">
-        <h3><a href="https://github.com/varunrana04/FinGradeAI" target="_blank">FinGradeAI</a></h3>
+        <h3><a href="https://github.com/varunrana04/FinGradeAI" target="_blank" rel="noopener noreferrer">FinGradeAI</a></h3>
         <span class="cmt">Generative AI</span>
       </div>
       <p class="dim">Multi-agent financial analyst built with LangGraph. It reads global financial news and panics in real-time so you don't have to.</p>
@@ -109,7 +124,7 @@
 
     <div class="block">
       <div class="block-header">
-        <h3><a href="https://github.com/varunrana04/Ployp-Stomach-Ulcer-Detection-Model" target="_blank">GastroVision</a></h3>
+        <h3><a href="https://github.com/varunrana04/Ployp-Stomach-Ulcer-Detection-Model" target="_blank" rel="noopener noreferrer">GastroVision</a></h3>
         <span class="cmt">Medical AI</span>
       </div>
       <p class="dim">Deep learning system that looks at stomachs so doctors don't have to squint. YOLO11L under the hood, heavily caffeinated engineer at the keyboard.</p>
@@ -128,6 +143,7 @@
       The pipeline needs two.
     </div>
     
+    <div id="diff-box-container">
     <div class="diff-box">
       <div class="diff-header">
         <span>enterprise_ai_synergy.py</span>
@@ -142,6 +158,7 @@
       <div class="diff-line add"><span class="diff-num">7</span> <span>+ classifier = pipeline("sentiment-analysis")</span></div>
     </div>
     <p class="cmt" style="margin-bottom: 2rem;">// same behavior. less enterprise jargon. zero chance of accidentally deleting the production database.</p>
+    </div>
   </section>
 
   <section id="the_ladder" style="margin-top: 6rem;">
@@ -151,6 +168,7 @@
       that holds.
     </div>
 
+    <div id="ladder-container">
     <div class="ladder-item">
       <div class="ladder-num">01</div>
       <div><strong>Does this need AI?</strong> Can we just use an Excel VLOOKUP and go to lunch? Skip it.</div>
@@ -166,6 +184,7 @@
     <div class="ladder-item">
       <div class="ladder-num">04</div>
       <div><strong>Only then:</strong> Sell your kidney, rent an A100 GPU cluster, and pray the loss curve goes down. (Or just hire me to do it properly).</div>
+    </div>
     </div>
   </section>
 
@@ -190,7 +209,7 @@
 
   <footer>
     <div class="footer-logo">
-      <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="var(--fg)" stroke-width="3">
+      <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="var(--fg)" stroke-width="3" aria-label="Terminal face" role="img">
         <!-- Minimal ASCII face SVG -->
         <circle cx="50" cy="50" r="40" />
         <path d="M 35 45 Q 40 40 45 45" />
@@ -208,13 +227,9 @@
       <a href="https://github.com/varunrana04/portfolio">varunrana04/portfolio</a>
     </div>
     
-    <div class="footer-links">
-      <a href="#">Legal Notice</a>
-      <span>•</span>
-      <a href="#">Privacy</a>
-    </div>
+
   </footer>
-</div>
+</main>
 
 <div id="snark-box" style="display: none; position: fixed; top: 60px; right: 20px; background: var(--panel); border: 1px solid var(--red); color: var(--red); padding: 10px 15px; border-radius: 4px; font-family: var(--mono); z-index: 9999; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"></div>
 <script>
@@ -347,6 +362,220 @@
               }
           }, delay * (index + 1));
       });
+    }
+  });
+</script>
+
+<script>
+  // Dynamic Humor Bundles
+  const humorBundles = [
+    {
+      // Bundle 1: Original
+      hero: `
+        <p class="cmt">// A data scientist who realizes 99% of "AI solutions"</p>
+        <p class="cmt">// are just nested IF statements and a thin API wrapper</p>
+        <p class="cmt">// around OpenAI. (Actively looking to be hired by a team</p>
+        <p class="cmt">// that knows the difference).</p>
+      `,
+      about: `
+        <p>I build "intelligent systems" (which is a fancy way of saying I babysit Python scripts while they download 40GB of pip dependencies).</p>
+        <br>
+        <p>I specialize in crafting production-ready AI solutions and convincing stakeholders that we don't need a 70B parameter foundational model to predict if it's going to rain.</p>
+      `,
+      diff: `
+        <div class="diff-box">
+          <div class="diff-header">
+            <span>enterprise_ai_synergy.py</span>
+            <span>-90 +2</span>
+          </div>
+          <div class="diff-line del"><span class="diff-num">1</span> <span>- class EnterpriseAICloudBlockchainSynergy(Dataset):</span></div>
+          <div class="diff-line del"><span class="diff-num">2</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, data):</span></div>
+          <div class="diff-line del"><span class="diff-num">3</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ChatGPT wrote this in 2023.</span></div>
+          <div class="diff-line add"><span class="diff-num">4</span> <span>+ from transformers import pipeline</span></div>
+          <div class="diff-line add"><span class="diff-num">5</span> <span>+ classifier = pipeline("sentiment-analysis")</span></div>
+        </div>
+        <p class="cmt" style="margin-bottom: 2rem;">// same behavior. less enterprise jargon. zero chance of deleting the production database.</p>
+      `,
+      ladder: `
+        <div class="ladder-item">
+          <div class="ladder-num">01</div>
+          <div><strong>Does this need AI?</strong> Can we just use an Excel VLOOKUP and go to lunch? Skip it.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">02</div>
+          <div><strong>Does a regex solve it?</strong> Use regex. If you now have two problems, use a switch statement.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">03</div>
+          <div><strong>Does XGBoost solve it?</strong> Use XGBoost. Don't add a 70B parameter dependency just to sort an array.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">04</div>
+          <div><strong>Only then:</strong> Rent an A100 GPU cluster and pray the loss curve goes down.</div>
+        </div>
+      `
+    },
+    {
+      // Bundle 2: The Realist
+      hero: `
+        <p class="cmt">// I train machine learning models to do in 3 days</p>
+        <p class="cmt">// what a regular expression could do in 3 milliseconds.</p>
+        <p class="cmt">// (Actively seeking a team that appreciates the difference).</p>
+      `,
+      about: `
+        <p>I'm a Data Scientist. I spend 80% of my time cleaning CSVs, 10% training models, and 10% explaining to stakeholders why the model just confidently classified a stop sign as a toaster.</p>
+      `,
+      diff: `
+        <div class="diff-box">
+          <div class="diff-header">
+            <span>predict_intent.py</span>
+            <span>-400 +2</span>
+          </div>
+          <div class="diff-line del"><span class="diff-num">1</span> <span>- def predict_user_intent(text):</span></div>
+          <div class="diff-line del"><span class="diff-num">2</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;# 400 lines of unmaintainable TensorFlow...</span></div>
+          <div class="diff-line add"><span class="diff-num">3</span> <span>+ def predict_user_intent(text):</span></div>
+          <div class="diff-line add"><span class="diff-num">4</span> <span>+ &nbsp;&nbsp;&nbsp;&nbsp;return "cancel" if "cancel" in text else "unknown"</span></div>
+        </div>
+        <p class="cmt" style="margin-bottom: 2rem;">// Same accuracy. $14,000 less in AWS bills.</p>
+      `,
+      ladder: `
+        <div class="ladder-item">
+          <div class="ladder-num">01</div>
+          <div><strong>Stuck?</strong> Print the variables.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">02</div>
+          <div><strong>Still stuck?</strong> Ask ChatGPT.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">03</div>
+          <div><strong>Desperate?</strong> Copy the first StackOverflow answer from 2013.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">04</div>
+          <div><strong>Only then:</strong> Actually read the documentation.</div>
+        </div>
+      `
+    },
+    {
+      // Bundle 3: The GPU Whisperer
+      hero: `
+        <p class="cmt">// My code is 10% algorithm, 40% print statements,</p>
+        <p class="cmt">// and 50% begging the GPU to allocate enough memory.</p>
+      `,
+      about: `
+        <p>My primary skill is looking intensely at a terminal progress bar while a neural network slowly realizes it has absolutely no idea what it's doing.</p>
+      `,
+      diff: `
+        <div class="diff-box">
+          <div class="diff-header">
+            <span>train_classifier.py</span>
+            <span>-3 +2</span>
+          </div>
+          <div class="diff-line del"><span class="diff-num">1</span> <span>- epochs = 100000</span></div>
+          <div class="diff-line del"><span class="diff-num">2</span> <span>- learning_rate = 0.0000001</span></div>
+          <div class="diff-line add"><span class="diff-num">3</span> <span>+ import random</span></div>
+          <div class="diff-line add"><span class="diff-num">4</span> <span>+ return random.choice(["cat", "dog"])</span></div>
+        </div>
+        <p class="cmt" style="margin-bottom: 2rem;">// Validation accuracy didn't change. Time saved: 4 weeks.</p>
+      `,
+      ladder: `
+        <div class="ladder-item">
+          <div class="ladder-num">01</div>
+          <div><strong>Error!</strong> Check if it's plugged in.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">02</div>
+          <div><strong>Still error!</strong> Restart the Jupyter kernel.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">03</div>
+          <div><strong>OOM!</strong> Buy more RAM.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">04</div>
+          <div><strong>Only then:</strong> Blame the dataset for being 'too noisy' and go to lunch.</div>
+        </div>
+      `
+    },
+    {
+      // Bundle 4: The Honest Engineer
+      hero: `
+        <p class="cmt">// I write 'Intelligent Systems'.</p>
+        <p class="cmt">// This is corporate speak for 'I pip install things</p>
+        <p class="cmt">// until the red text goes away'.</p>
+      `,
+      about: `
+        <p>I bridge the gap between 'what management thinks AI can do' and 'what a well-written IF statement can actually achieve'.</p>
+      `,
+      diff: `
+        <div class="diff-box">
+          <div class="diff-header">
+            <span>core_model.py</span>
+            <span>-3 +1</span>
+          </div>
+          <div class="diff-line del"><span class="diff-num">1</span> <span>- import torch</span></div>
+          <div class="diff-line del"><span class="diff-num">2</span> <span>- import tensorflow as tf</span></div>
+          <div class="diff-line del"><span class="diff-num">3</span> <span>- import everything_else</span></div>
+          <div class="diff-line add"><span class="diff-num">4</span> <span>+ import pandas as pd</span></div>
+        </div>
+        <p class="cmt" style="margin-bottom: 2rem;">// You didn't need Deep Learning. You needed a Pivot Table.</p>
+      `,
+      ladder: `
+        <div class="ladder-item">
+          <div class="ladder-num">01</div>
+          <div><strong>Phase 1:</strong> Build a simple heuristic.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">02</div>
+          <div><strong>Phase 2:</strong> Refine the heuristic.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">03</div>
+          <div><strong>Phase 3:</strong> Add a threshold to the heuristic.</div>
+        </div>
+        <div class="ladder-item">
+          <div class="ladder-num">04</div>
+          <div><strong>Phase 4:</strong> Call it 'Zero-Shot Heuristic Intelligence' on your resume.</div>
+        </div>
+      `
+    }
+  ];
+
+  // Rotate Humor on Load
+  window.addEventListener('DOMContentLoaded', () => {
+    const bundleIndex = Math.floor(Math.random() * humorBundles.length);
+    const bundle = humorBundles[bundleIndex];
+    
+    document.getElementById('hero-bio-container').innerHTML = bundle.hero;
+    document.getElementById('about-text-container').innerHTML = bundle.about;
+    document.getElementById('diff-box-container').innerHTML = bundle.diff;
+    document.getElementById('ladder-container').innerHTML = bundle.ladder;
+  });
+
+  // Surprise Button Logic (Disco Mode)
+  const surpriseBtn = document.getElementById('surprise-btn');
+  let isDisco = false;
+  let discoOverlay;
+
+  surpriseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    isDisco = !isDisco;
+    
+    if (isDisco) {
+      surpriseBtn.textContent = "got tired?";
+      document.body.classList.add('disco-mode');
+      
+      discoOverlay = document.createElement('div');
+      discoOverlay.className = 'disco-overlay';
+      document.body.appendChild(discoOverlay);
+    } else {
+      surpriseBtn.textContent = "??surprise??";
+      document.body.classList.remove('disco-mode');
+      
+      if (discoOverlay) {
+        discoOverlay.remove();
+      }
     }
   });
 </script>

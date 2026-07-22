@@ -562,28 +562,34 @@
 
   // Surprise Button Logic (Disco Mode)
   const surpriseBtn = document.getElementById('surprise-btn');
-  let isDisco = false;
+  let partyState = 0; // 0: off, 1: on, 2: trying to close
   let discoOverlay;
 
   surpriseBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    isDisco = !isDisco;
     
-    if (isDisco) {
-      // Show the 'got tired?' message in the snark box
+    if (partyState === 0) {
+      // 1st click: Turn on party mode, no message
+      partyState = 1;
+      document.body.classList.add('disco-mode');
+      
+      discoOverlay = document.createElement('div');
+      discoOverlay.className = 'disco-overlay';
+      document.body.appendChild(discoOverlay);
+      
+    } else if (partyState === 1) {
+      // 2nd click: Refuse to close, show message
+      partyState = 2;
       snarkBox.innerHTML = "Got tired? Click on the button again to close me/it...";
       snarkBox.style.display = 'block';
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         snarkBox.style.display = 'none';
       }, 5000);
-
-      document.body.classList.add('disco-mode');
       
-      discoOverlay = document.createElement('div');
-      discoOverlay.className = 'disco-overlay';
-      document.body.appendChild(discoOverlay);
-    } else {
+    } else if (partyState === 2) {
+      // 3rd click: Actually close it
+      partyState = 0;
       document.body.classList.remove('disco-mode');
       
       if (discoOverlay) {

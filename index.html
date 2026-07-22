@@ -140,62 +140,10 @@
 
   <section id="the_whole_idea" style="margin-top: 6rem;">
     <h2 class="humor-h2"><span class="grn">##</span> the_whole_idea</h2>
-    <div class="humor-title">
-      Your notebook reaches for 1,000 lines.<br>
-      The pipeline needs two.
+    <div class="humor-title" style="margin-bottom: 1.5rem;">
+      Experience the thrill of Machine Learning.
     </div>
-    
-    <div id="diff-box-container">
-    <div class="diff-box">
-      <div class="diff-header">
-        <span>enterprise_ai_synergy.py</span>
-        <span>-90 +2</span>
-      </div>
-      <div class="diff-line del"><span class="diff-num">1</span> <span>- class EnterpriseAICloudBlockchainSynergy(Dataset):</span></div>
-      <div class="diff-line del"><span class="diff-num">2</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, data):</span></div>
-      <div class="diff-line del"><span class="diff-num">3</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ChatGPT wrote this in 2023.</span></div>
-      <div class="diff-line del"><span class="diff-num">4</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# I don't know what it does but I'm afraid to delete it.</span></div>
-      <div class="diff-line del"><span class="diff-num">5</span> <span>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.data = data.apply(lambda x: x * 0) # wait what</span></div>
-      <div class="diff-line add"><span class="diff-num">6</span> <span>+ from transformers import pipeline</span></div>
-      <div class="diff-line add"><span class="diff-num">7</span> <span>+ classifier = pipeline("sentiment-analysis")</span></div>
-    </div>
-    <p class="cmt" style="margin-bottom: 2rem;">// same behavior. less enterprise jargon. zero chance of accidentally deleting the production database.</p>
-    </div>
-  </section>
-
-  <section id="the_ladder" style="margin-top: 6rem;">
-    <h2 class="humor-h2"><span class="grn">##</span> the_ladder</h2>
-    <div class="humor-title">
-      Stop at the first model<br>
-      that holds.
-    </div>
-
-    <div id="ladder-container">
-    <div class="ladder-item">
-      <div class="ladder-num">01</div>
-      <div><strong>Does this need AI?</strong> Can we just use an Excel VLOOKUP and go to lunch? Skip it.</div>
-    </div>
-    <div class="ladder-item">
-      <div class="ladder-num">02</div>
-      <div><strong>Does a regex solve it?</strong> Use regex. If you now have two problems, use a switch statement.</div>
-    </div>
-    <div class="ladder-item">
-      <div class="ladder-num">03</div>
-      <div><strong>Does XGBoost solve it?</strong> Use XGBoost. Don't add a 70 Billion parameter dependency just to sort an array.</div>
-    </div>
-    <div class="ladder-item">
-      <div class="ladder-num">04</div>
-      <div><strong>Only then:</strong> Sell your kidney, rent an A100 GPU cluster, and pray the loss curve goes down. (Or just hire me to do it properly).</div>
-    </div>
-    </div>
-  </section>
-
-  <section id="ai_simulator" style="margin-top: 6rem;">
-    <h2 class="humor-h2"><span class="grn">##</span> realistic_ai_simulator.exe</h2>
-    <div class="humor-title" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-      <div>Experience the thrill of Machine Learning.</div>
-      <img id="sim-gif" src="https://media.giphy.com/media/V4NSR1NG2p0KeTXHTs/giphy.gif" alt="Hacking" style="height: 40px; border-radius: 4px; border: 1px solid var(--line);" />
-    </div>
+    <img id="sim-gif" src="https://media1.tenor.com/m/G8mXm6a9Y_8AAAAd/hackerman.gif" alt="Hacking" style="width: 100%; max-width: 600px; height: 180px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 2rem; display: block;" />
     
     <div class="terminal-game" id="game-container" style="background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; font-family: var(--mono); height: 300px; display: flex; flex-direction: column;">
       <div id="game-output" style="color: var(--dim); margin-bottom: 1rem; flex-grow: 1; overflow-y: auto; line-height: 1.5;">
@@ -568,10 +516,10 @@
   // Rotate Humor on Load
   let currentSimText = "> Initialize A100 GPU cluster...<br>> Loading 70B parameter model...<br>> Ready to train.";
   const simGifs = [
-    "https://media.tenor.com/anVMFFvkDG0AAAAM/pepe-hacker.gif",
-    "https://media1.tenor.com/m/8Y-aR2PZep8AAAAd/hack-hacker.gif",
+    "https://media1.tenor.com/m/G8mXm6a9Y_8AAAAd/hackerman.gif",
+    "https://media1.tenor.com/m/fX8Bw1B0DQQAAAAd/hack-hacker.gif",
     "https://media1.tenor.com/m/n4vE0bCqWnMAAAAd/cat-typing.gif",
-    "https://media1.tenor.com/m/G8mXm6a9Y_8AAAAd/hackerman.gif"
+    "https://media1.tenor.com/m/Z6J6W63mX8EAAAAd/coding-hacker.gif"
   ];
   
   window.addEventListener('DOMContentLoaded', () => {

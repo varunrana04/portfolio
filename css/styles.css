@@ -1,5 +1,6 @@
 /* ponytail.dev Hacker Gruvbox Theme - Perfected */
 :root{
+  color-scheme: dark;
   --bg:#0e0d0b; 
   --panel:#161410; 
   --fg:#d8d3c5; 
@@ -423,7 +424,7 @@ footer {
 /* Firefox Scrollbar Styling */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--comment) var(--bg);
+  scrollbar-color: var(--dim) transparent;
 }
 
 /* === DISCO MODE === */
@@ -489,4 +490,19 @@ footer {
 @keyframes sweep2 {
   0% { transform: rotate(30deg); }
   100% { transform: rotate(-20deg); }
+}
+
+/* Explicitly style the game-output scrollbar to guarantee it applies */
+#game-output::-webkit-scrollbar {
+  width: 8px;
+}
+#game-output::-webkit-scrollbar-track {
+  background: transparent;
+}
+#game-output::-webkit-scrollbar-thumb {
+  background: var(--dim);
+  border-radius: 4px;
+}
+#game-output::-webkit-scrollbar-thumb:hover {
+  background: var(--fg);
 }
